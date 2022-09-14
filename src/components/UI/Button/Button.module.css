@@ -1,0 +1,38 @@
+.btn {
+	--box-shadow: 3px 3px 7px #c2cbd9;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	letter-spacing: 0.8px;
+	font: inherit;
+	font-weight: 600;
+	border-radius: 40px;
+	height: 60px;
+	padding: 0 40px;
+	border: none;
+	cursor: pointer;
+	box-shadow: var(--box-shadow);
+	transition: background 0.3s, box-shadow 0.3s;
+}
+.btn:hover:not(:disabled) {
+	--box-shadow: 5px 5px 12px #98adcd;
+}
+
+.primary {
+	color: var(--white);
+	background: var(--primary);
+}
+.primary:hover {
+	background: var(--primary-hover);
+}
+.secondary {
+	color: var(--primary);
+	background: var(--white);
+}
+
+.primary:disabled {
+	--primary: var(--grey);
+	--primary-hover: var(--grey);
+	cursor: not-allowed;
+}
