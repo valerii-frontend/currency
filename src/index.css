@@ -1,0 +1,35 @@
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+	--primary: #335566;
+	--primary-hover: #214456;
+	--active: #37defb;
+	--error: #ca163a;
+	--light: #e0e5ec;
+	--white: #fff;
+}
+body {
+	font-family: "Open Sans";
+	font-size: 16px;
+	color: var(--primary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: linear-gradient(270deg, #d0e1e6 0%, #c5c9cd 100%);
+}
+body:before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: calc(652 / 1080 * 100%);
+	width: 100%;
+	background: url("./assets/logo.svg") bottom 40px left 40px/ 142px no-repeat, rgba(255, 255, 255, 0.63);
+	z-index: -1;
+}
