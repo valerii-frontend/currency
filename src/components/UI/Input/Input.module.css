@@ -3,6 +3,11 @@
 	position: relative;
 }
 
+.input p {
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
 .input input {
 	width: 100%;
 	max-width: 100%;
@@ -19,17 +24,24 @@
 .input input::placeholder {
 	font-weight: 400;
 }
-.input input:focus {
-	border-color: var(--active);
-	font-weight: 400;
-	outline: none;
-}
+
 .input.invalid input {
 	border-color: var(--error);
 	color: var(--error);
 }
 .input.invalid input + label {
 	color: var(--error);
+}
+.input input:focus + label {
+	color: var(--primary);
+}
+
+.input input:focus,
+.invalid input:focus {
+	border-color: var(--active);
+	font-weight: 400;
+	color: var(--primary);
+	outline: none;
 }
 .input:after {
 	content: "Nieprawidłowa wartość";
@@ -52,7 +64,7 @@
 }
 .input label {
 	position: absolute;
-	top: 0;
+	bottom: 0;
 	right: 0;
 	width: 56px;
 	height: 56px;
