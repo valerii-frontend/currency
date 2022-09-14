@@ -13,12 +13,16 @@
 	border: none;
 	cursor: pointer;
 	box-shadow: var(--box-shadow);
-	transition: background 0.3s, box-shadow 0.3s;
+	transition: 0.3s;
 }
 .btn:hover:not(:disabled) {
 	--box-shadow: 5px 5px 12px #98adcd;
+	transition: 0.3s;
 }
-
+.btn:active {
+	transform: scale(0.98);
+	box-shadow: none;
+}
 .primary {
 	color: var(--white);
 	background: var(--primary);
