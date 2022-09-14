@@ -11,11 +11,13 @@
 	--active: #37defb;
 	--error: #ca163a;
 	--light: #e0e5ec;
+	--grey: #a3b1c6;
 	--white: #fff;
 }
 body {
 	font-family: "Open Sans";
 	font-size: 16px;
+	line-height: 100%;
 	color: var(--primary);
 	display: flex;
 	align-items: center;
