@@ -1,8 +1,14 @@
 .input {
 	max-width: 300px;
 	position: relative;
+	margin-bottom: 40px;
 }
-
+.input:first-child {
+	margin-right: 24px;
+}
+.input input:disabled {
+	background-color: var(--white);
+}
 .title {
 	display: inline-block;
 	font-weight: 600;
@@ -25,6 +31,7 @@
 
 .input input::placeholder {
 	font-weight: 400;
+	transition: 300ms;
 }
 
 .input.invalid input {
@@ -36,6 +43,9 @@
 }
 .input input:focus + .label {
 	color: var(--primary);
+}
+.input input:focus::placeholder {
+	opacity: 0;
 }
 
 .input input:focus,

@@ -6,9 +6,10 @@ interface InputProps {
 	id: string;
 	placeholder?: string;
 	name: string;
+	disabled?: boolean;
 }
 
-const Input: FC<InputProps> = ({ placeholder, id, label, name }) => {
+const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled }) => {
 	const [inputText, setInputText] = useState<string>("");
 	const [inputError, setInputError] = useState<boolean>(false);
 
@@ -26,6 +27,7 @@ const Input: FC<InputProps> = ({ placeholder, id, label, name }) => {
 				{name}
 			</label>
 			<input
+				disabled={disabled}
 				placeholder={placeholder}
 				id={id}
 				value={inputText}

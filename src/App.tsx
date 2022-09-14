@@ -9,9 +9,14 @@ function App() {
 	return (
 		<div className='App'>
 			<Card title='Konwerter walut'>
-				<Button>Konwertuj</Button>
-				<br />
-				<Input id='currency' label='PLN' name='Kwota' />
+				<div style={{ display: "flex" }}>
+					<Input id='from' label='PLN' name='Kwota' placeholder='Wpisz kwote' />
+					<Input id='to' label='USD' name='Wynik' placeholder='Wynik' disabled />
+				</div>
+				<div style={{ display: "flex" }}>
+					<Button view='secondary'>Ukryj historię</Button>
+					<Button>Konwertuj</Button>
+				</div>
 			</Card>
 		</div>
 	);

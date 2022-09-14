@@ -15,6 +15,9 @@
 	box-shadow: var(--box-shadow);
 	transition: 0.3s;
 }
+.btn:first-child {
+	margin-right: 24px;
+}
 .btn:hover:not(:disabled) {
 	--box-shadow: 5px 5px 12px #98adcd;
 	transition: 0.3s;
