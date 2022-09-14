@@ -22,7 +22,9 @@ const Input: FC<InputProps> = ({ placeholder, id, label, name }) => {
 
 	return (
 		<div className={`${styles.input} ${inputError ? styles.invalid : ""}`}>
-			<p>{name}</p>
+			<label className={styles.title} htmlFor={id}>
+				{name}
+			</label>
 			<input
 				placeholder={placeholder}
 				id={id}
@@ -31,7 +33,9 @@ const Input: FC<InputProps> = ({ placeholder, id, label, name }) => {
 				onBlur={onBlurHandler}
 				onFocus={onFocusHandler}
 			/>
-			<label htmlFor={id}>{label}</label>
+			<label className={styles.label} htmlFor={id}>
+				{label}
+			</label>
 		</div>
 	);
 };
