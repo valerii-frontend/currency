@@ -1,0 +1,88 @@
+.select {
+	width: 150px;
+	height: 56px;
+	border-radius: 5px;
+	box-shadow: var(--box-shadow);
+	font: inherit;
+	cursor: pointer;
+	transition: 300ms;
+	background: var(--white);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	position: relative;
+}
+/* ARROW */
+.select:before {
+	content: url("../../../assets/list-down.svg");
+	position: absolute;
+	top: calc(50% - 8px);
+	right: 20px;
+	transition: all 300ms;
+}
+/* LIST */
+.select ul {
+	list-style: none;
+}
+.select li {
+	padding: 16px;
+}
+.select li:hover {
+	background: var(--light);
+}
+.dropdown {
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	height: 200px;
+	border-top: 1px solid var(--primary);
+	display: none;
+	background-color: var(--white);
+	border-radius: 0 0 5px 5px;
+	box-shadow: var(--box-shadow);
+	overflow: hidden;
+}
+.select ul {
+	overflow: auto;
+	height: 200px;
+}
+/* OPEN STATE */
+.select.open {
+	transition: 300ms;
+	border-radius: 5px 5px 0 0;
+}
+.select.open .dropdown {
+	display: block;
+}
+.select.open:before {
+	transform: scaleY(-1);
+}
+.current {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	padding: 20px 16px;
+}
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	border: 1px solid var(--light);
+}
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background: #fbfbfd;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 0;
+	background: var(--primary);
+}
+
+.item p {
+	display: inline-block;
+	font-weight: 600;
+	margin-bottom: 8px;
+}

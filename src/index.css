@@ -13,6 +13,7 @@
 	--light: #e0e5ec;
 	--grey: #a3b1c6;
 	--white: #fff;
+	--box-shadow: 3px 3px 7px #c2cbd9;
 }
 body {
 	font-family: "Open Sans";
