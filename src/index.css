@@ -21,10 +21,10 @@ body {
 	line-height: 100%;
 	color: var(--primary);
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
-	background: linear-gradient(270deg, #d0e1e6 0%, #c5c9cd 100%);
+	background: linear-gradient(90deg, #d0e1e6 0%, #c5c9cd 100%);
+	overflow: hidden;
 }
 body:before {
 	content: "";
@@ -35,4 +35,28 @@ body:before {
 	width: 100%;
 	background: url("./assets/logo.svg") bottom 40px left 40px/ 142px no-repeat, rgba(255, 255, 255, 0.63);
 	z-index: -1;
+}
+.row {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	margin-bottom: 40px;
+}
+.col {
+	display: flex;
+	gap: 24px;
+}
+.controls {
+	display: flex;
+	justify-content: flex-end;
+}
+.change {
+	align-self: flex-end;
+	margin-bottom: 20px;
+	cursor: pointer;
+	opacity: 0.5;
+	transition: all 300ms;
+}
+.change:hover {
+	opacity: 1;
 }

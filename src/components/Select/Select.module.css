@@ -17,7 +17,7 @@
 }
 /* ARROW */
 .select:before {
-	content: url("../../../assets/list-down.svg");
+	content: url("../../assets/list-down.svg");
 	position: absolute;
 	top: calc(50% - 8px);
 	right: 20px;
@@ -84,5 +84,5 @@
 .item p {
 	display: inline-block;
 	font-weight: 600;
-	margin-bottom: 8px;
+	margin-bottom: 10px;
 }
