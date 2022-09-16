@@ -63,6 +63,24 @@ function App() {
 			.then(function (response) {
 				let amount = String((response.data * +inputsValues.from).toFixed(2));
 				setInputsValues((p) => ({ ...p, to: amount }));
+				let date = new Date();
+				let day = `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`;
+				let month = `${date.getMonth() < 9 ? "0" + (+date.getMonth() + 1) : +date.getMonth() + 1}`;
+				interface exchangeData {
+					data: string;
+					from: string;
+					to: string;
+					course: string;
+				}
+				let exchange: exchangeData[] = [
+					{
+						data: `${day}.${month}.${date.getFullYear()}`,
+						from: `${inputsValues.from} ${fromCur}`,
+						to: `${amount} ${toCur}`,
+						course: `1 ${fromCur} = ${response.data.toFixed(2)} ${toCur}`,
+					},
+				];
+				localStorage.setItem("history", JSON.stringify(exchange));
 			})
 			.catch(function (error) {
 				setFetchError([error.message, error.code]);
