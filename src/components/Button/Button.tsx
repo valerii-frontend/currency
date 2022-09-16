@@ -1,17 +1,21 @@
-import React, { FC, ButtonHTMLAttributes } from "react";
+import React, { FC, HTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends HTMLAttributes<HTMLDivElement> {
 	view?: "secondary" | "primary";
+	disabled?: boolean;
+	onclick?: any;
 }
 
-const Button: FC<ButtonProps> = ({ children, view, disabled }) => {
-	const btnStyles = `${styles.btn} ${view === "secondary" ? styles.secondary : styles.primary} `;
-
+const Button: FC<ButtonProps> = (props) => {
 	return (
-		<button disabled={disabled} className={btnStyles}>
-			{children}
-		</button>
+		<div
+			className={`${styles.btn} ${props.view === "secondary" ? styles.secondary : styles.primary} ${
+				props.disabled ? styles.disabled : ""
+			}`}
+			onClick={props.onClick}>
+			{props.children}
+		</div>
 	);
 };
 export default Button;

@@ -8,10 +8,11 @@ import axios from "axios";
 import ErrorScreen from "./components/ErrorScreen/ErrorScreen";
 
 function App() {
-	const [error, setError] = useState<boolean>(true);
+	const [errorInput, setErrorInput] = useState<boolean>(false);
 	const [options, setOptions] = useState<string[]>(["USD", "EUR", "UAH"]);
 	const [labelFrom, setLabelFrom] = useState<string>("USD");
 	const [labelTo, setLabelTo] = useState<string>("USD");
+	const [inputsValues, setInputsValues] = useState<{ from: string; to: string }>({ from: "1", to: "1" });
 	const [closeError, setCloseError] = useState<boolean>(false);
 	const [fetchError, setFetchError] = useState<string[]>(["", ""]);
 
@@ -19,10 +20,15 @@ function App() {
 		let [from, to] = [labelFrom, labelTo];
 		setLabelFrom(to);
 		setLabelTo(from);
+		setInputsValues({ from: "", to: "" });
+	};
+	const convertHandler = () => {
+		convert(labelFrom, labelTo, 100);
 	};
 
+	// Get currency list
 	useEffect(() => {
-		const response = axios
+		axios
 			.request({
 				method: "GET",
 				url: "https://currency-exchange.p.rapidapi.com/listquotes",
@@ -39,6 +45,27 @@ function App() {
 				setCloseError(true);
 			});
 	}, []);
+	function convert(fromCur: string, toCur: string, amount: number) {
+		const options = {
+			method: "GET",
+			url: "https://currency-exchange.p.rapidapi.com/exchange",
+			params: { from: fromCur, to: toCur, q: amount },
+			headers: {
+				"X-RapidAPI-Key": "d4bd4e8105msh5b7f653cf42b9abp11fc9ajsn6abd8a0a8301",
+				"X-RapidAPI-Host": "currency-exchange.p.rapidapi.com",
+			},
+		};
+
+		axios
+			.request(options)
+			.then(function (response) {
+				setInputsValues((p) => ({ ...p, to: response.data }));
+			})
+			.catch(function (error) {
+				setFetchError([error.message, error.code]);
+				setCloseError(true);
+			});
+	}
 
 	return (
 		<div className='App'>
@@ -53,13 +80,22 @@ function App() {
 						<Select title='Przelicz na' options={options} setLabel={setLabelTo} label={labelTo}></Select>
 					</div>
 					<div className='col'>
-						<Input id='from' label={labelFrom} name='Kwota' placeholder='Wpisz kwote' error={setError} />
-						<Input id='to' label={labelTo} name='Wynik' placeholder='Wynik' disabled />
+						<Input
+							id='from'
+							label={labelFrom}
+							name='Kwota'
+							placeholder='Wpisz kwote'
+							error={setErrorInput}
+							value={inputsValues.from}
+						/>
+						<Input id='to' label={labelTo} name='Wynik' placeholder='Wynik' disabled value={inputsValues.to} />
 					</div>
 				</div>
 				<div className='controls'>
 					<Button view='secondary'>Ukryj historię</Button>
-					<Button disabled={error}>Konwertuj</Button>
+					<Button disabled={errorInput} onClick={convertHandler}>
+						Konwertuj
+					</Button>
 				</div>
 			</Card>
 		</div>

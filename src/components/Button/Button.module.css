@@ -36,8 +36,9 @@
 	background: var(--white);
 }
 
-.primary:disabled {
+.primary.disabled {
 	--primary: var(--grey);
 	--primary-hover: var(--grey);
+	pointer-events: painted;
 	cursor: not-allowed;
 }

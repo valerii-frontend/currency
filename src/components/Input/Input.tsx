@@ -8,17 +8,18 @@ interface InputProps {
 	name: string;
 	disabled?: boolean;
 	error?: any;
+	value: string;
 }
 
-const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error }) => {
+const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error, value }) => {
 	const [inputText, setInputText] = useState<string>("");
 	const [inputError, setInputError] = useState<boolean>(false);
 
 	const onBlurHandler = (): void => {
-		let check = inputText.match(/[a-zA-Z]+/g);
-		if (check) {
+		let check = !inputText.match(/\D/g);
+
+		if (!check || inputText === "") {
 			setInputError(true);
-		} else if (check || !inputText) {
 			error(true);
 		} else {
 			setInputError(false);
@@ -26,10 +27,9 @@ const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error }
 		}
 	};
 	const onFocusHandler = (): void => {
-		let check = inputText.match(/[a-zA-Z]+/g);
-		if (check) {
+		let check = !inputText.match(/\D/g);
+		if (!check || inputText === "") {
 			setInputText("");
-		} else if (check || !inputText) {
 			error(true);
 		} else {
 			setInputText(inputText);
@@ -47,7 +47,7 @@ const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error }
 				disabled={disabled}
 				placeholder={placeholder}
 				id={id}
-				value={inputText}
+				value={value ? value : inputText}
 				onChange={(e) => setInputText(e.target.value)}
 				onBlur={onBlurHandler}
 				onFocus={onFocusHandler}
