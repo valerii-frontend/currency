@@ -6,6 +6,7 @@ import Select from "./components/Select/Select";
 import arrowsIcon from "./assets/change.svg";
 import axios from "axios";
 import ErrorScreen from "./components/ErrorScreen/ErrorScreen";
+import History from "./components/History/History";
 
 function App() {
 	const [errorInput, setErrorInput] = useState<boolean>(false);
@@ -105,6 +106,7 @@ function App() {
 						Konwertuj
 					</Button>
 				</div>
+				{isHistory && <History></History>}
 			</Card>
 		</div>
 	);

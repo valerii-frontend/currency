@@ -67,19 +67,6 @@
 	pointer-events: none;
 	padding: 20px 16px;
 }
-::-webkit-scrollbar {
-	width: 5px;
-	height: 5px;
-	border: 1px solid var(--light);
-}
-::-webkit-scrollbar-track {
-	border-radius: 10px;
-	background: #fbfbfd;
-}
-::-webkit-scrollbar-thumb {
-	border-radius: 0;
-	background: var(--primary);
-}
 
 .item p {
 	display: inline-block;

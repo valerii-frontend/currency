@@ -1,0 +1,30 @@
+.wrap {
+	margin-top: 80px;
+	height: 200px;
+	overflow-y: auto;
+	padding: 0 15px;
+}
+
+.history {
+	width: 100%;
+	height: 200px;
+}
+.history tr {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	padding: 15px 0;
+	border-bottom: 1px solid var(--primary);
+}
+.history th,
+.history td {
+	flex: 0 0 25%;
+	max-width: 25%;
+	text-align: right;
+}
+.history th:first-child,
+.history td:first-child {
+	flex: 1 1 auto;
+	max-width: 100%;
+	text-align: left;
+}

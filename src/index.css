@@ -70,3 +70,17 @@ body:before {
 	left: 0;
 	top: 0;
 }
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	border: 1px solid var(--light);
+}
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background: var(--light);
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 0;
+	background: var(--primary);
+}
