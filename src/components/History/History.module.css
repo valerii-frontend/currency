@@ -28,3 +28,8 @@
 	max-width: 100%;
 	text-align: left;
 }
+.history td:last-child {
+	background-image: url("../../assets/arrow-right.svg");
+	background-repeat: no-repeat;
+	background-position: 33.33% 50%;
+}

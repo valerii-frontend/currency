@@ -1,40 +1,34 @@
 import { FC } from "react";
 import styles from "./History.module.css";
 
-const History: FC = () => {
+interface HistoryProps {
+	historyExchange: any;
+}
+
+const History: FC<HistoryProps> = ({ historyExchange }) => {
 	return (
 		<div className={styles.wrap}>
-			<table className={styles.history}>
-				<thead>
-					<tr>
-						<th>Company</th>
-						<th>Contact</th>
-						<th>Country</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Alfreds Futterkiste</td>
-						<td>Maria Anders</td>
-						<td>Germany</td>
-					</tr>
-					<tr>
-						<td>Centro comercial Moctezuma</td>
-						<td>Francisco Chang</td>
-						<td>Mexico</td>
-					</tr>
-					<tr>
-						<td>Alfreds Futterkiste</td>
-						<td>Maria Anders</td>
-						<td>Germany</td>
-					</tr>
-					<tr>
-						<td>Centro comercial Moctezuma</td>
-						<td>Francisco Chang</td>
-						<td>Mexico</td>
-					</tr>
-				</tbody>
-			</table>
+			{historyExchange.length === 0 && <h2 style={{ textAlign: "center" }}>Historia jest pusta</h2>}
+			{historyExchange.length !== 0 && (
+				<table className={styles.history}>
+					<thead>
+						<tr>
+							<th>Data</th>
+							<th>Przed konwersja</th>
+							<th>Po konwersji</th>
+						</tr>
+					</thead>
+					<tbody>
+						{historyExchange.map((e: any) => (
+							<tr key={`${e.from}${Math.random()}`}>
+								<td>{e.data}</td>
+								<td>{e.from}</td>
+								<td>{e.to}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			)}
 		</div>
 	);
 };

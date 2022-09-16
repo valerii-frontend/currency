@@ -40,6 +40,15 @@
 .primary.disabled {
 	--primary: var(--grey);
 	--primary-hover: var(--grey);
-	pointer-events: painted;
+	position: relative;
+	pointer-events: none;
+}
+.primary.disabled + span {
+	width: 168px;
+	height: 60px;
+	border-radius: 100px;
+	position: absolute;
+	right: 0;
+	opacity: 0;
 	cursor: not-allowed;
 }

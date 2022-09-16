@@ -49,6 +49,7 @@ body:before {
 .controls {
 	display: flex;
 	justify-content: flex-end;
+	position: relative;
 }
 .change {
 	align-self: flex-end;

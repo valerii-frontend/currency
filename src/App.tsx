@@ -9,7 +9,7 @@ import ErrorScreen from "./components/ErrorScreen/ErrorScreen";
 import History from "./components/History/History";
 
 function App() {
-	const [errorInput, setErrorInput] = useState<boolean>(false);
+	const [errorInput, setErrorInput] = useState<boolean>(true);
 	const [options, setOptions] = useState<string[]>(["USD", "EUR", "UAH"]);
 	const [labelFrom, setLabelFrom] = useState<string>("USD");
 	const [labelTo, setLabelTo] = useState<string>("USD");
@@ -17,6 +17,7 @@ function App() {
 	const [closeError, setCloseError] = useState<boolean>(false);
 	const [fetchError, setFetchError] = useState<string[]>(["", ""]);
 	const [isHistory, setIsHistory] = useState<boolean>(false);
+	const [historyExchange, setHistoryExchange] = useState<Array<any>>([]);
 
 	const changeFromToHandler = () => {
 		let [from, to] = [labelFrom, labelTo];
@@ -80,7 +81,9 @@ function App() {
 						course: `1 ${fromCur} = ${response.data.toFixed(2)} ${toCur}`,
 					},
 				];
-				localStorage.setItem("history", JSON.stringify(exchange));
+				setHistoryExchange((p) => [...exchange, ...p]);
+				localStorage.setItem("history", JSON.stringify(historyExchange));
+				console.log(localStorage.getItem("history"));
 			})
 			.catch(function (error) {
 				setFetchError([error.message, error.code]);
@@ -123,8 +126,9 @@ function App() {
 					<Button disabled={errorInput} onClick={convertHandler}>
 						Konwertuj
 					</Button>
+					{errorInput && <span></span>}
 				</div>
-				{isHistory && <History></History>}
+				{isHistory && <History historyExchange={historyExchange}></History>}
 			</Card>
 		</div>
 	);
