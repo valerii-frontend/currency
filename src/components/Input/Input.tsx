@@ -7,17 +7,34 @@ interface InputProps {
 	placeholder?: string;
 	name: string;
 	disabled?: boolean;
+	error?: any;
 }
 
-const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled }) => {
+const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error }) => {
 	const [inputText, setInputText] = useState<string>("");
 	const [inputError, setInputError] = useState<boolean>(false);
 
 	const onBlurHandler = (): void => {
-		inputText.match(/[a-zA-Z]+/g) ? setInputError(true) : setInputError(false);
+		let check = inputText.match(/[a-zA-Z]+/g);
+		if (check) {
+			setInputError(true);
+		} else if (check || !inputText) {
+			error(true);
+		} else {
+			setInputError(false);
+			error(false);
+		}
 	};
 	const onFocusHandler = (): void => {
-		inputText.match(/[a-zA-Z]+/g) ? setInputText("") : setInputText(inputText);
+		let check = inputText.match(/[a-zA-Z]+/g);
+		if (check) {
+			setInputText("");
+		} else if (check || !inputText) {
+			error(true);
+		} else {
+			setInputText(inputText);
+			error(false);
+		}
 		setInputError(false);
 	};
 
