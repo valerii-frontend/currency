@@ -5,6 +5,10 @@
 	right: 0;
 	top: 0;
 	z-index: 100;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	padding: 50px;
 }
 .overlay {
 	position: absolute;
@@ -14,10 +18,6 @@
 	top: 0;
 	background-color: var(--primary);
 	opacity: 0.7;
-	display: flex;
-	align-items: flex-end;
-	justify-content: flex-end;
-	padding: 50px;
 }
 .msg {
 	max-width: 500px;
@@ -29,6 +29,7 @@
 	position: relative;
 	padding: 30px;
 	animation: msg 500ms 300ms ease-in-out both;
+	z-index: 15;
 }
 @keyframes msg {
 	from {

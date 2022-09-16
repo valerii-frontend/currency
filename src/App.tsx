@@ -46,6 +46,7 @@ function App() {
 			.catch(function (error) {
 				setFetchError([error.message, error.code]);
 				setCloseError(true);
+				setInputsValues((p) => ({ ...p, to: "" }));
 			});
 	}, []);
 	function convert(fromCur: string, toCur: string) {
@@ -88,6 +89,7 @@ function App() {
 			.catch(function (error) {
 				setFetchError([error.message, error.code]);
 				setCloseError(true);
+				setInputsValues((p) => ({ ...p, to: "" }));
 			});
 	}
 
