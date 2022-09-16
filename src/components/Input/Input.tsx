@@ -45,6 +45,7 @@ const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error, 
 				{name}
 			</label>
 			<input
+				maxLength={10}
 				disabled={disabled}
 				placeholder={placeholder}
 				id={id}

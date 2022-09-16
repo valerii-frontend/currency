@@ -25,6 +25,12 @@ body {
 	min-height: 100vh;
 	background: linear-gradient(90deg, #d0e1e6 0%, #c5c9cd 100%);
 	overflow: hidden;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 body:before {
 	content: "";
