@@ -56,7 +56,6 @@ body:before {
 	cursor: pointer;
 	opacity: 0.5;
 	transition: all 300ms;
-	order: 2;
 }
 .change:hover {
 	opacity: 1;

@@ -1,0 +1,64 @@
+.errorScreen {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 100;
+}
+.overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	background-color: var(--primary);
+	opacity: 0.7;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	padding: 50px;
+}
+.msg {
+	max-width: 500px;
+	height: 140px;
+	border-radius: 5px;
+	box-shadow: 4px 8px 10px var(--primary-hover);
+	background-color: var(--white);
+	border-left: 10px solid var(--error);
+	position: relative;
+	padding: 30px;
+	animation: msg 500ms 300ms ease-in-out both;
+}
+@keyframes msg {
+	from {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+.title {
+	font-weight: 700;
+	margin-bottom: 12px;
+	line-height: 100%;
+}
+.msg p {
+	line-height: 20px;
+}
+.close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 14px;
+	height: 14px;
+	background: url("../../assets/close.svg") center/contain no-repeat;
+	opacity: 0.6;
+	cursor: pointer;
+	transition: all 300ms;
+}
+.close:hover {
+	opacity: 1;
+}

@@ -5,13 +5,16 @@ import Input from "./components/Input/Input";
 import Select from "./components/Select/Select";
 import arrowsIcon from "./assets/change.svg";
 import axios from "axios";
+import ErrorScreen from "./components/ErrorScreen/ErrorScreen";
 
 function App() {
 	const [error, setError] = useState<boolean>(true);
 	const [options, setOptions] = useState<string[]>(["USD", "EUR", "UAH"]);
 	const [labelFrom, setLabelFrom] = useState<string>("USD");
 	const [labelTo, setLabelTo] = useState<string>("USD");
-	const [orders, setOrders] = useState({ from: [1, "z"], to: [3, "na"] });
+	const [closeError, setCloseError] = useState<boolean>(false);
+	const [fetchError, setFetchError] = useState<string[]>(["", ""]);
+
 	const changeFromToHandler = () => {
 		let [from, to] = [labelFrom, labelTo];
 		setLabelFrom(to);
@@ -32,20 +35,22 @@ function App() {
 				setOptions(response.data);
 			})
 			.catch(function (error) {
-				console.error(error);
+				setFetchError([error.message, error.code]);
+				setCloseError(true);
 			});
 	}, []);
 
 	return (
 		<div className='App'>
+			{closeError && <ErrorScreen errorText={fetchError} close={setCloseError} />}
 			<Card title='Konwerter walut'>
 				<div className='row'>
 					<div className='col'>
-						<Select title='Przelicz z' options={options} setLabel={setLabelFrom} order={1}></Select>
+						<Select title='Przelicz z' options={options} setLabel={setLabelFrom} label={labelFrom}></Select>
 						<div className='change'>
 							<img src={arrowsIcon} alt='change icon' onClick={changeFromToHandler} />
 						</div>
-						<Select title='Przelicz na' options={options} setLabel={setLabelTo} order={3}></Select>
+						<Select title='Przelicz na' options={options} setLabel={setLabelTo} label={labelTo}></Select>
 					</div>
 					<div className='col'>
 						<Input id='from' label={labelFrom} name='Kwota' placeholder='Wpisz kwote' error={setError} />

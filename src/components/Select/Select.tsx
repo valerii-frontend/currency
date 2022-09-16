@@ -6,15 +6,13 @@ interface SelectProps {
 	title: string;
 	setLabel?: any;
 	changeValue?: string;
-	order: number;
+	label: string;
 }
 
-const Select: FC<SelectProps> = ({ options, title, setLabel, order }) => {
-	const [selectValue, setSelectValue] = useState<string>("USD");
+const Select: FC<SelectProps> = ({ options, title, setLabel, label }) => {
 	const [drop, setDrop] = useState<boolean>(false);
 
 	const clickItemHandler = (e: React.BaseSyntheticEvent) => {
-		setSelectValue(e.target.textContent);
 		setLabel(e.target.textContent);
 	};
 
@@ -23,10 +21,10 @@ const Select: FC<SelectProps> = ({ options, title, setLabel, order }) => {
 	};
 
 	return (
-		<div className={styles.item} style={{ order: order }}>
+		<div className={styles.item}>
 			<p className={styles.title}>{title}</p>
 			<div className={`${styles.select} ${drop ? styles.open : ""}`} onClick={dropListHandler}>
-				<span className={styles.current}>{selectValue}</span>
+				<span className={styles.current}>{label}</span>
 				<div className={styles.dropdown}>
 					<ul>
 						{options.map((option) => (
