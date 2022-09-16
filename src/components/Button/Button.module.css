@@ -12,6 +12,7 @@
 	cursor: pointer;
 	box-shadow: var(--box-shadow);
 	transition: 0.3s;
+	position: relative;
 }
 .btn:first-child {
 	margin-right: 24px;

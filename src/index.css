@@ -60,3 +60,13 @@ body:before {
 .change:hover {
 	opacity: 1;
 }
+.historyLabel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	top: 0;
+}

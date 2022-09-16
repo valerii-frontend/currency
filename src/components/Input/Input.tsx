@@ -8,10 +8,11 @@ interface InputProps {
 	name: string;
 	disabled?: boolean;
 	error?: any;
-	value: string;
+	value?: string;
+	setInputsValues?: any;
 }
 
-const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error, value }) => {
+const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error, value, setInputsValues }) => {
 	const [inputText, setInputText] = useState<string>("");
 	const [inputError, setInputError] = useState<boolean>(false);
 
@@ -48,7 +49,10 @@ const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error, 
 				placeholder={placeholder}
 				id={id}
 				value={value ? value : inputText}
-				onChange={(e) => setInputText(e.target.value)}
+				onChange={(e) => {
+					setInputText(e.target.value);
+					setInputsValues((p: { from: string; to: string }) => ({ ...p, from: e.target.value }));
+				}}
 				onBlur={onBlurHandler}
 				onFocus={onFocusHandler}
 			/>
