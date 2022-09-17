@@ -17,7 +17,8 @@ const MainPage: FC<PropsWithChildren> = ({ children }) => {
 	const [closeError, setCloseError] = useState<boolean>(false);
 	const [fetchError, setFetchError] = useState<string[]>(["", ""]);
 	const [isHistory, setIsHistory] = useState<boolean>(false);
-	const [historyExchange, setHistoryExchange] = useState<Array<any>>([]);
+	const checkTheStorage = JSON.parse(localStorage.getItem("history") || "[]");
+	const [historyExchange, setHistoryExchange] = useState<Array<any>>([...checkTheStorage]);
 
 	const changeFromToHandler = () => {
 		let [from, to] = [labelFrom, labelTo];
@@ -68,8 +69,11 @@ const MainPage: FC<PropsWithChildren> = ({ children }) => {
 				let date = new Date();
 				let day = `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`;
 				let month = `${date.getMonth() < 9 ? "0" + (+date.getMonth() + 1) : +date.getMonth() + 1}`;
+				let hour = `${date.getHours() < 10 ? "0" + date.getHours() : date.getHours()}`;
+				let min = `${date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}`;
 				interface exchangeData {
 					data: string;
+					time: string;
 					from: string;
 					to: string;
 					course: string;
@@ -77,14 +81,15 @@ const MainPage: FC<PropsWithChildren> = ({ children }) => {
 				let exchange: exchangeData[] = [
 					{
 						data: `${day}.${month}.${date.getFullYear()}`,
+						time: `${hour}:${min}`,
 						from: `${inputsValues.from} ${fromCur}`,
 						to: `${amount} ${toCur}`,
 						course: `1 ${fromCur} = ${response.data.toFixed(2)} ${toCur}`,
 					},
 				];
+
 				setHistoryExchange((p) => [...exchange, ...p]);
 				localStorage.setItem("history", JSON.stringify(historyExchange));
-				console.log(localStorage.getItem("history"));
 			})
 			.catch(function (error) {
 				setFetchError([error.message, error.code]);

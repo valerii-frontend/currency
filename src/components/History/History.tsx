@@ -14,7 +14,7 @@ const History: FC<HistoryProps> = ({ historyExchange, isPage }) => {
 				<table className={styles.history}>
 					<thead>
 						<tr>
-							<th>Data</th>
+							<th>{isPage ? "Data ta czas" : "Data"}</th>
 							{isPage && <th>Kurs</th>}
 							<th>Przed konwersja</th>
 							<th>Po konwersji</th>
@@ -23,7 +23,10 @@ const History: FC<HistoryProps> = ({ historyExchange, isPage }) => {
 					<tbody>
 						{historyExchange.map((e: any) => (
 							<tr key={`${e.from}${Math.random()}`}>
-								<td>{e.data}</td>
+								<td>
+									{e.data}
+									{isPage && <small> - {e.time}</small>}
+								</td>
 								{isPage && <td>{e.course}</td>}
 								<td>{e.from}</td>
 								<td>{e.to}</td>
