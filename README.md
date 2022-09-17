@@ -14,7 +14,7 @@
 
 - Get list of currency from API
 - Library of UI components
-- Receiving exchange rates during the exchange
+- Receiving exchange rates during the convert
 - Navigation bar & 2 separate pages
 - Input & fetch validation
 - Save history in localStorage
