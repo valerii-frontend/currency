@@ -4,6 +4,11 @@
 	overflow-y: auto;
 	padding: 0 15px;
 }
+.page {
+	height: 300px;
+	overflow-y: auto;
+	padding: 0 15px;
+}
 
 .history {
 	width: 100%;
@@ -32,4 +37,7 @@
 	background-image: url("../../assets/arrow-right.svg");
 	background-repeat: no-repeat;
 	background-position: 33.33% 50%;
+}
+.page td:last-child {
+	background-position: calc(50% - 24px) 50%;
 }

@@ -3,17 +3,19 @@ import styles from "./History.module.css";
 
 interface HistoryProps {
 	historyExchange: any;
+	isPage?: boolean;
 }
 
-const History: FC<HistoryProps> = ({ historyExchange }) => {
+const History: FC<HistoryProps> = ({ historyExchange, isPage }) => {
 	return (
-		<div className={styles.wrap}>
+		<div className={isPage ? styles.page : styles.wrap}>
 			{historyExchange.length === 0 && <h2 style={{ textAlign: "center" }}>Historia jest pusta</h2>}
 			{historyExchange.length !== 0 && (
 				<table className={styles.history}>
 					<thead>
 						<tr>
 							<th>Data</th>
+							{isPage && <th>Kurs</th>}
 							<th>Przed konwersja</th>
 							<th>Po konwersji</th>
 						</tr>
@@ -22,6 +24,7 @@ const History: FC<HistoryProps> = ({ historyExchange }) => {
 						{historyExchange.map((e: any) => (
 							<tr key={`${e.from}${Math.random()}`}>
 								<td>{e.data}</td>
+								{isPage && <td>{e.course}</td>}
 								<td>{e.from}</td>
 								<td>{e.to}</td>
 							</tr>
