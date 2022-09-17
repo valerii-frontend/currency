@@ -18,6 +18,7 @@
 - Navigation bar & 2 separate pages
 - Input & fetch validation
 - Save history in localStorage
+- Additional save info about convert course and full date
 - Oportunity to remove the history
 - Responsive view
 
