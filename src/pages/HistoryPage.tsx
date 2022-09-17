@@ -1,4 +1,5 @@
 import React, { PropsWithChildren, FC, useState } from "react";
+import { NavLink } from "react-router-dom";
 import Button from "../components/Button/Button";
 import Card from "../components/Card/Card";
 import History from "../components/History/History";
@@ -10,8 +11,12 @@ const HistoryPage: FC<PropsWithChildren> = () => {
 		<Card title='Historia'>
 			<History isPage historyExchange={thisHistory} />
 			<div className='controls'>
+				<Button view='secondary'>
+					<NavLink className='backLink' to={"/"}>
+						Strona glowna
+					</NavLink>
+				</Button>
 				<Button
-					view='secondary'
 					onClick={() => {
 						window.localStorage.removeItem("history");
 						setThisHistory([]);
