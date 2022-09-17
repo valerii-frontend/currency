@@ -22,6 +22,11 @@
 - Oportunity to remove the history
 - Responsive view
 
+## Scripts
+
+- npm start 
+- npm build
+
 ## About
 
 - Grafic Project - [Centralny Osrodek Informatyki](https://www.coi.gov.pl/)
