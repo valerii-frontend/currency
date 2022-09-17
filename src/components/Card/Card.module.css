@@ -32,6 +32,7 @@
 @media (max-width: 768px) {
 	.card {
 		margin-top: 120px;
+		backdrop-filter: none;
 	}
 }
 @media (max-width: 576px) {
