@@ -59,7 +59,9 @@ nav {
 	background-color: rgba(255, 255, 255, 0.63);
 	box-shadow: var(--box-shadow);
 }
+
 nav a {
+	--primary: var(--grey);
 	color: var(--primary);
 	text-decoration: none;
 	transition: all 300ms;
@@ -90,6 +92,9 @@ nav ul {
 	align-items: center;
 	justify-content: center;
 	gap: 2rem;
+}
+nav li.active a {
+	--primary: var(--primary);
 }
 .row {
 	display: flex;

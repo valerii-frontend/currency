@@ -1,21 +1,13 @@
 import React from "react";
 import MainPage from "./pages/MainPage";
 import HistoryPage from "./pages/HistoryPage";
-import { BrowserRouter, Route, Routes, Navigate, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import Nav from "./components/Nav/Nav";
 function App() {
 	return (
 		<BrowserRouter>
+			<Nav />
 			<div className='App'>
-				<nav>
-					<ul>
-						<li>
-							<NavLink to={"/"}>Konwerter</NavLink>
-						</li>
-						<li>
-							<NavLink to={"/history"}>Historia rozszerzona</NavLink>
-						</li>
-					</ul>
-				</nav>
 				<Routes>
 					<Route path='/' element={<MainPage />} />
 					<Route path='/history' element={<HistoryPage />} />
