@@ -17,8 +17,9 @@ const MainPage: FC<PropsWithChildren> = ({ children }) => {
 	const [closeError, setCloseError] = useState<boolean>(false);
 	const [fetchError, setFetchError] = useState<string[]>(["", ""]);
 	const [isHistory, setIsHistory] = useState<boolean>(false);
-	const checkTheStorage = JSON.parse(localStorage.getItem("history") || "[]");
-	const [historyExchange, setHistoryExchange] = useState<Array<any>>([...checkTheStorage]);
+	const [historyExchange, setHistoryExchange] = useState<Array<any>>(
+		JSON.parse(localStorage.getItem("history") || "[]")
+	);
 
 	const changeFromToHandler = () => {
 		let [from, to] = [labelFrom, labelTo];
@@ -88,8 +89,8 @@ const MainPage: FC<PropsWithChildren> = ({ children }) => {
 					},
 				];
 
-				setHistoryExchange((p) => [...exchange, ...p]);
-				localStorage.setItem("history", JSON.stringify(historyExchange));
+				localStorage.setItem("history", JSON.stringify([...exchange, ...historyExchange]));
+				setHistoryExchange(JSON.parse(localStorage.getItem("history") || "[]"));
 			})
 			.catch(function (error) {
 				setFetchError([error.message, error.code]);
