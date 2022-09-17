@@ -41,3 +41,37 @@
 .page td:last-child {
 	background-position: calc(50% - 24px) 50%;
 }
+.page {
+	margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+	.page {
+		margin-bottom: 20px;
+	}
+	.wrap {
+		margin-top: 40px;
+		height: 150px;
+	}
+	.history tr {
+		padding: 8px 0;
+	}
+	.history th:first-child,
+	.history th:nth-child(2),
+	.history td:first-child,
+	.history td:nth-child(2) {
+		flex: 0 0 150px;
+		max-width: 150px;
+	}
+	.page td:last-child {
+		background-position: 20% 50%;
+	}
+	.history td:last-child {
+		background-position: 35% 50%;
+	}
+	.history td,
+	.history th {
+		flex: 1 1 auto;
+		max-width: unset;
+	}
+}

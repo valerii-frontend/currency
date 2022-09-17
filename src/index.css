@@ -34,6 +34,7 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	padding: 0 15px;
 }
 body:before {
 	content: "";
@@ -44,6 +45,10 @@ body:before {
 	width: 100%;
 	background: url("./assets/logo.svg") bottom 40px left 40px/ 142px no-repeat, rgba(255, 255, 255, 0.63);
 	z-index: -1;
+}
+h2 {
+	text-align: center;
+	line-height: 125%;
 }
 nav {
 	position: fixed;
@@ -134,4 +139,60 @@ nav ul {
 ::-webkit-scrollbar-thumb {
 	border-radius: 0;
 	background: var(--primary);
+}
+
+@media (max-width: 1200px) {
+	.row {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.col:first-child {
+		margin-bottom: 30px;
+		gap: 21px;
+	}
+	.col:last-child {
+		gap: 60px;
+	}
+	div[class*="Select"] {
+		width: 300px;
+	}
+	.controls {
+		max-width: 660px;
+		margin: 0 auto;
+	}
+}
+@media (max-width: 768px) {
+	.row {
+		margin-bottom: 20px;
+	}
+	div[class*="Select"] {
+		width: 100px;
+	}
+	div[class*="Input"] {
+		width: 240px;
+	}
+	.col:last-child {
+		gap: 0;
+		flex-wrap: wrap;
+		flex: 0 0 100%;
+		max-width: 475px;
+		justify-content: center;
+	}
+	.col:last-child > *:first-child {
+		margin-bottom: 20px;
+	}
+	.col:first-child {
+		margin-bottom: 20px;
+		gap: 11px;
+	}
+	.controls {
+		justify-content: center;
+	}
+	table {
+		min-width: 600px;
+		white-space: nowrap;
+	}
+	h2 {
+		font-size: 18px;
+	}
 }

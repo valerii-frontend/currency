@@ -9,7 +9,7 @@ interface HistoryProps {
 const History: FC<HistoryProps> = ({ historyExchange, isPage }) => {
 	return (
 		<div className={isPage ? styles.page : styles.wrap}>
-			{historyExchange.length === 0 && <h2 style={{ textAlign: "center" }}>Historia jest pusta</h2>}
+			{historyExchange.length === 0 && <h2>Brak wcześniejszych konwersji</h2>}
 			{historyExchange.length !== 0 && (
 				<table className={styles.history}>
 					<thead>
