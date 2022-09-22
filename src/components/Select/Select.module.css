@@ -1,7 +1,6 @@
 .select {
 	width: 150px;
 	height: 56px;
-	border-radius: 5px;
 	box-shadow: var(--box-shadow);
 	font: inherit;
 	cursor: pointer;
@@ -36,7 +35,6 @@
 	border-top: 1px solid var(--primary);
 	display: none;
 	background-color: var(--white);
-	border-radius: 0 0 5px 5px;
 	box-shadow: var(--box-shadow);
 	overflow: hidden;
 }
@@ -47,7 +45,6 @@
 /* OPEN STATE */
 .select.open {
 	transition: 300ms;
-	border-radius: 5px 5px 0 0;
 }
 .select.open .dropdown {
 	display: block;
