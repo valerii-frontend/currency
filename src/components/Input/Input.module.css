@@ -55,7 +55,7 @@
 	outline: none;
 }
 .input:after {
-	content: "Nieprawidłowa wartość";
+	content: "Wrong data";
 	position: absolute;
 	top: 100%;
 	width: 100%;

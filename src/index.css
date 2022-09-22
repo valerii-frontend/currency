@@ -6,14 +6,14 @@
 	box-sizing: border-box;
 }
 :root {
-	--primary: #335566;
-	--primary-hover: #214456;
-	--active: #37defb;
+	--primary: #004fa4;
+	--primary-hover: #003c7c;
+	--active: #00d540;
 	--error: #ca163a;
 	--light: #e0e5ec;
-	--grey: #a3b1c6;
-	--white: #fff;
-	--box-shadow: 3px 3px 7px #c2cbd9;
+	--grey: #849dc3;
+	--white: rgb(255, 255, 255);
+	--box-shadow: 3px 3px 7px #d1d1d1;
 }
 #root {
 	width: 100%;
@@ -26,7 +26,7 @@ body {
 	display: flex;
 	justify-content: center;
 	min-height: 100vh;
-	background: linear-gradient(90deg, #d0e1e6 0%, #c5c9cd 100%);
+	background: linear-gradient(#d2d2d2 0%, #9fabb3 100%);
 	overflow: hidden;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -35,16 +35,6 @@ body {
 	-ms-user-select: none;
 	user-select: none;
 	padding: 0 15px;
-}
-body:before {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: calc(652 / 1080 * 100%);
-	width: 100%;
-	background: url("./assets/logo.svg") bottom 40px left 40px/ 142px no-repeat, rgba(255, 255, 255, 0.63);
-	z-index: -1;
 }
 h2 {
 	text-align: center;

@@ -7,10 +7,10 @@ export default function Nav() {
 		<nav>
 			<ul>
 				<li className={pathname === "/" ? "active" : ""}>
-					<NavLink to={"/"}>Konwerter</NavLink>
+					<NavLink to={"/"}>Main page</NavLink>
 				</li>
 				<li className={pathname === "/history" ? "active" : ""}>
-					<NavLink to={"/history"}>Historia rozszerzona</NavLink>
+					<NavLink to={"/history"}>History details</NavLink>
 				</li>
 			</ul>
 		</nav>

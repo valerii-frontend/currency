@@ -102,37 +102,37 @@ const MainPage: FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<div>
 			{closeError && <ErrorScreen errorText={fetchError} close={setCloseError} />}
-			<Card title='Konwerter walut'>
+			<Card title='Currency converter'>
 				<div className='row'>
 					<div className='col'>
-						<Select title='Przelicz z' options={options} setLabel={setLabelFrom} label={labelFrom}></Select>
+						<Select title='From' options={options} setLabel={setLabelFrom} label={labelFrom}></Select>
 						<div className='change'>
 							<img src={arrowsIcon} alt='change icon' onClick={changeFromToHandler} />
 						</div>
-						<Select title='Przelicz na' options={options} setLabel={setLabelTo} label={labelTo}></Select>
+						<Select title='To' options={options} setLabel={setLabelTo} label={labelTo}></Select>
 					</div>
 					<div className='col'>
 						<Input
 							id='from'
 							label={labelFrom}
-							name='Kwota'
-							placeholder='Wpisz kwote'
+							name='Input'
+							placeholder='Before'
 							error={setErrorInput}
 							value={inputsValues.from}
 							setInputsValues={setInputsValues}
 						/>
-						<Input id='to' label={labelTo} name='Wynik' placeholder='Wynik' disabled value={inputsValues.to} />
+						<Input id='to' label={labelTo} name='Result' placeholder='After' disabled value={inputsValues.to} />
 					</div>
 				</div>
 				<div className='controls'>
 					<Button view='secondary' onClick={() => setIsHistory((p) => !p)}>
-						<span style={{ opacity: `${isHistory ? 1 : 0}` }}>Ukryj historię</span>{" "}
+						<span style={{ opacity: `${isHistory ? 1 : 0}` }}>Show history</span>{" "}
 						<span className='historyLabel' style={{ opacity: `${isHistory ? 0 : 1}` }}>
-							Historia
+							History
 						</span>
 					</Button>
 					<Button disabled={errorInput} onClick={convertHandler}>
-						Konwertuj
+						Convert
 					</Button>
 					{errorInput && <span></span>}
 				</div>

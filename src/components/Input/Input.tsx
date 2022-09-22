@@ -16,10 +16,11 @@ const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error, 
 	const [inputText, setInputText] = useState<string>("");
 	const [inputError, setInputError] = useState<boolean>(false);
 
-	const onBlurHandler = (): void => {
+	const onCheckHandler = (): void => {
 		let check = !inputText.match(/\D/g);
-
-		if (!check || inputText === "") {
+		if (inputText === "") {
+			error(true);
+		} else if (!check) {
 			setInputError(true);
 			error(true);
 		} else {
@@ -27,35 +28,24 @@ const Input: FC<InputProps> = ({ placeholder, id, label, name, disabled, error, 
 			error(false);
 		}
 	};
-	const onFocusHandler = (): void => {
-		let check = !inputText.match(/\D/g);
-		if (!check || inputText === "") {
-			setInputText("");
-			error(true);
-		} else {
-			setInputText(inputText);
-			error(false);
-		}
-		setInputError(false);
-	};
 
 	return (
-		<div className={`${styles.input} ${inputError ? styles.invalid : ""}`}>
+		<div className={`${styles.input} ${inputError && styles.invalid}`}>
 			<label className={styles.title} htmlFor={id}>
 				{name}
 			</label>
 			<input
-				maxLength={10}
+				maxLength={5}
 				disabled={disabled}
 				placeholder={placeholder}
 				id={id}
-				value={value ? value : inputText}
+				value={value ?? inputText}
 				onChange={(e) => {
 					setInputText(e.target.value);
 					setInputsValues((p: { from: string; to: string }) => ({ ...p, from: e.target.value }));
 				}}
-				onBlur={onBlurHandler}
-				onFocus={onFocusHandler}
+				onBlur={onCheckHandler}
+				onFocus={onCheckHandler}
 			/>
 			<label className={styles.label} htmlFor={id}>
 				{label}

@@ -9,15 +9,15 @@ interface HistoryProps {
 const History: FC<HistoryProps> = ({ historyExchange, isPage }) => {
 	return (
 		<div className={isPage ? styles.page : styles.wrap}>
-			{historyExchange.length === 0 && <h2>Brak wcześniejszych konwersji</h2>}
+			{historyExchange.length === 0 && <h2>There are no past conversions</h2>}
 			{historyExchange.length !== 0 && (
 				<table className={styles.history}>
 					<thead>
 						<tr>
-							<th>{isPage ? "Data ta czas" : "Data"}</th>
-							{isPage && <th>Kurs</th>}
-							<th>Przed konwersja</th>
-							<th>Po konwersji</th>
+							<th>{isPage ? "Date/time" : "Date"}</th>
+							{isPage && <th>Course</th>}
+							<th>From</th>
+							<th>To</th>
 						</tr>
 					</thead>
 					<tbody>

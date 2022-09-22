@@ -8,12 +8,12 @@ const HistoryPage: FC<PropsWithChildren> = () => {
 	const [thisHistory, setThisHistory] = useState(JSON.parse(localStorage.getItem("history") || "[]"));
 
 	return (
-		<Card title='Historia'>
+		<Card title='History'>
 			<History isPage historyExchange={thisHistory} />
 			<div className='controls'>
 				<Button view='secondary'>
 					<NavLink className='backLink' to={"/"}>
-						Strona glowna
+						Main page
 					</NavLink>
 				</Button>
 				<Button
@@ -21,7 +21,7 @@ const HistoryPage: FC<PropsWithChildren> = () => {
 						window.localStorage.removeItem("history");
 						setThisHistory([]);
 					}}>
-					Wyczyść historię
+					Clear history
 				</Button>
 			</div>
 		</Card>
