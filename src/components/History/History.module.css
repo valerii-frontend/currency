@@ -44,6 +44,14 @@
 .page {
 	margin-bottom: 40px;
 }
+@media (max-width: 992px) {
+	.page td:last-child {
+		background: none;
+	}
+	.history td:last-child {
+		background: none;
+	}
+}
 
 @media (max-width: 768px) {
 	.page {
@@ -62,12 +70,6 @@
 	.history td:nth-child(2) {
 		flex: 0 0 150px;
 		max-width: 150px;
-	}
-	.page td:last-child {
-		background-position: 20% 50%;
-	}
-	.history td:last-child {
-		background-position: 35% 50%;
 	}
 	.history td,
 	.history th {
