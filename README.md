@@ -28,7 +28,6 @@
 - npm start 
 - npm build
 
-## About
+## Author
 
-- Grafic Project - [Centralny Osrodek Informatyki](https://www.coi.gov.pl/)
-- Code and logic - [v.lozghachov](https://www.linkedin.com/in/valerii-lozghachov/)
+- [v.lozghachov](https://www.linkedin.com/in/valerii-lozghachov/)
